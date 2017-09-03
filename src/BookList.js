@@ -3,12 +3,12 @@ import Book from "./Book";
 
 const BookList = ({books}) =>
   <ol className="books-grid">
-    {books.map(({title, authors, coverURL, shelf}) =>
+    {books.map(({title, authors, imageLinks, shelf}) =>
       <li key={title}>
         <Book
           title={title}
           authors={authors}
-          coverURL={coverURL}
+          thumbnail={imageLinks.thumbnail}
           shelf={shelf} />
       </li>
     )}

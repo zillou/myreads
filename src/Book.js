@@ -1,6 +1,6 @@
 import React from "react";
 
-const Book = ({title, authors, coverURL, shelf}) =>
+const Book = ({title, authors, thumbnail, shelf}) =>
   <div className="book">
     <div className="book-top">
       <div className="book-cover"
@@ -8,7 +8,7 @@ const Book = ({title, authors, coverURL, shelf}) =>
           {
             width: 128,
             height: 192,
-            backgroundImage: `url("${coverURL}")`
+            backgroundImage: `url("${thumbnail}")`
           }
         }></div>
 
@@ -23,7 +23,7 @@ const Book = ({title, authors, coverURL, shelf}) =>
       </div>
     </div>
     <div className="book-title">{ title }</div>
-    <div className="book-authors">{ authors }</div>
+    <div className="book-authors">{ authors.join(", ") }</div>
   </div>
 
 export default Book;
