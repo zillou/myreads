@@ -1,6 +1,9 @@
 import React from "react";
 
-const Book = ({title, authors, thumbnail, shelf}) =>
+const Book = (book) => {
+  const {title, authors, thumbnail, shelf, changeBookShelf } = book;
+
+  return (
   <div className="book">
     <div className="book-top">
       <div className="book-cover"
@@ -13,7 +16,7 @@ const Book = ({title, authors, thumbnail, shelf}) =>
         }></div>
 
       <div className="book-shelf-changer">
-        <select>
+        <select onChange={e => changeBookShelf(book, e.target.value)} defaultValue={shelf}>
           <option value="none" disabled>Move to...</option>
           <option value="currentlyReading">Currently Reading</option>
           <option value="wantToRead">Want to Read</option>
@@ -25,5 +28,7 @@ const Book = ({title, authors, thumbnail, shelf}) =>
     <div className="book-title">{ title }</div>
     <div className="book-authors">{ authors.join(", ") }</div>
   </div>
+  )
+}
 
 export default Book;
